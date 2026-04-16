@@ -5,6 +5,8 @@ from collections import Counter
 import pandas as pd
 import streamlit as st
 
+
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 from parser import load_alerts
@@ -14,6 +16,30 @@ from ai_summary import generate_ai_summary
 
 st.set_page_config(page_title="AWS Security Alert Dashboard", layout="wide")
 st.title("AWS Security Alert Dashboard")
+
+import json
+import streamlit as st
+from parser import load_alerts
+
+DEFAULT_PATH = "data/alerts.json"
+
+def save_uploaded_alerts(uploaded_file, path=DEFAULT_PATH):
+    data = json.load(uploaded_file)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return data
+
+uploaded_file = st.file_uploader("Upload alerts.json", type=["json"])
+
+if uploaded_file is not None:
+    try:
+        alerts = save_uploaded_alerts(uploaded_file)
+        st.success(f"Saved {len(alerts)} alerts to {DEFAULT_PATH}")
+    except Exception as e:
+        st.error(f"Upload failed: {e}")
+        st.stop()
+else:
+    alerts = load_alerts(DEFAULT_PATH)
 
 
 def build_result(alert):
