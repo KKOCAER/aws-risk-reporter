@@ -1,0 +1,133 @@
+[
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "arn:aws:securityhub:eu-west-1:111111111111:subscription/aws-foundational-security-best-practices/v/1.0.0/S3.8/finding/1111aaaa-2222-bbbb-3333-cccc4444dddd",
+    "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+    "GeneratorId": "security-control/S3.8",
+    "AwsAccountId": "111111111111",
+    "Types": ["Software and Configuration Checks/AWS Security Best Practices"],
+    "CreatedAt": "2026-04-16T08:30:00Z",
+    "UpdatedAt": "2026-04-16T08:30:00Z",
+    "Severity": {"Label": "CRITICAL", "Normalized": 90},
+    "Title": "S3 bucket allows public read access",
+    "Description": "The S3 bucket customer-data-bucket allows public read access and may expose customer export files.",
+    "ProductName": "Security Hub",
+    "CompanyName": "AWS",
+    "Region": "eu-west-1",
+    "Workflow": {"Status": "NEW"},
+    "RecordState": "ACTIVE",
+    "Compliance": {"Status": "FAILED", "SecurityControlId": "S3.8"},
+    "Resources": [
+      {
+        "Type": "AwsS3Bucket",
+        "Id": "arn:aws:s3:::customer-data-bucket",
+        "Region": "eu-west-1",
+        "Tags": {
+          "Owner": "data-platform",
+          "Environment": "production",
+          "DataSensitivity": "critical",
+          "App": "billing"
+        }
+      }
+    ],
+    "ProductFields": {"ControlId": "S3.8", "ProviderName": "Security Hub"}
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "arn:aws:securityhub:eu-west-1:111111111111:subscription/aws-foundational-security-best-practices/v/1.0.0/EC2.18/finding/5555aaaa-6666-bbbb-7777-cccc8888dddd",
+    "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+    "GeneratorId": "security-control/EC2.18",
+    "AwsAccountId": "111111111111",
+    "Types": ["Software and Configuration Checks/AWS Security Best Practices"],
+    "CreatedAt": "2026-04-16T07:10:00Z",
+    "UpdatedAt": "2026-04-16T07:10:00Z",
+    "Severity": {"Label": "HIGH", "Normalized": 75},
+    "Title": "Security group allows unrestricted SSH access",
+    "Description": "Security group web-sg allows inbound access from 0.0.0.0/0 to port 22.",
+    "ProductName": "Security Hub",
+    "CompanyName": "AWS",
+    "Region": "eu-west-1",
+    "Workflow": {"Status": "NEW"},
+    "RecordState": "ACTIVE",
+    "Compliance": {"Status": "FAILED", "SecurityControlId": "EC2.18"},
+    "Resources": [
+      {
+        "Type": "AwsEc2SecurityGroup",
+        "Id": "sg-0123456789abcdef0",
+        "Region": "eu-west-1",
+        "Tags": {
+          "Owner": "infra-ops",
+          "Environment": "production",
+          "DataSensitivity": "medium",
+          "App": "frontend"
+        }
+      }
+    ],
+    "ProductFields": {"ControlId": "EC2.18", "ProviderName": "Security Hub"}
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "arn:aws:securityhub:eu-west-1:111111111111:subscription/aws-foundational-security-best-practices/v/1.0.0/IAM.1/finding/9999aaaa-0000-bbbb-1111-cccc2222dddd",
+    "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+    "GeneratorId": "security-control/IAM.1",
+    "AwsAccountId": "111111111111",
+    "Types": ["Software and Configuration Checks/AWS Security Best Practices"],
+    "CreatedAt": "2026-04-15T23:45:00Z",
+    "UpdatedAt": "2026-04-15T23:45:00Z",
+    "Severity": {"Label": "CRITICAL", "Normalized": 90},
+    "Title": "IAM role contains administrator-equivalent permissions",
+    "Description": "The role AdminAutomationRole contains wildcard actions and wildcard resources.",
+    "ProductName": "Security Hub",
+    "CompanyName": "AWS",
+    "Region": "eu-west-1",
+    "Workflow": {"Status": "NEW"},
+    "RecordState": "ACTIVE",
+    "Compliance": {"Status": "FAILED", "SecurityControlId": "IAM.1"},
+    "Resources": [
+      {
+        "Type": "AwsIamRole",
+        "Id": "arn:aws:iam::111111111111:role/AdminAutomationRole",
+        "Region": "global",
+        "Tags": {
+          "Owner": "cloud-platform",
+          "Environment": "production",
+          "DataSensitivity": "high",
+          "App": "shared-services"
+        }
+      }
+    ],
+    "ProductFields": {"ControlId": "IAM.1", "ProviderName": "Security Hub"}
+  },
+  {
+    "SchemaVersion": "2018-10-08",
+    "Id": "arn:aws:securityhub:eu-west-1:111111111111:subscription/aws-foundational-security-best-practices/v/1.0.0/CloudTrail.2/finding/3333aaaa-4444-bbbb-5555-cccc6666dddd",
+    "ProductArn": "arn:aws:securityhub:eu-west-1::product/aws/securityhub",
+    "GeneratorId": "security-control/CloudTrail.2",
+    "AwsAccountId": "111111111111",
+    "Types": ["Software and Configuration Checks/AWS Security Best Practices"],
+    "CreatedAt": "2026-04-14T10:15:00Z",
+    "UpdatedAt": "2026-04-14T10:15:00Z",
+    "Severity": {"Label": "MEDIUM", "Normalized": 50},
+    "Title": "CloudTrail trail is disabled",
+    "Description": "The organization trail is disabled in one region, reducing audit visibility.",
+    "ProductName": "Security Hub",
+    "CompanyName": "AWS",
+    "Region": "eu-west-1",
+    "Workflow": {"Status": "NEW"},
+    "RecordState": "ACTIVE",
+    "Compliance": {"Status": "FAILED", "SecurityControlId": "CloudTrail.2"},
+    "Resources": [
+      {
+        "Type": "AwsCloudTrailTrail",
+        "Id": "arn:aws:cloudtrail:eu-west-1:111111111111:trail/org-trail",
+        "Region": "eu-west-1",
+        "Tags": {
+          "Owner": "security-ops",
+          "Environment": "production",
+          "DataSensitivity": "medium"
+        }
+      }
+    ],
+    "ProductFields": {"ControlId": "CloudTrail.2", "ProviderName": "Security Hub"}
+  }
+]
